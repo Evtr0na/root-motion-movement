@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://8yinjtmuprxh"]
+
+[ext_resource type="Script" uid="uid://basf7hqmhwgyr" path="res://player/character_body_3d_2.gd" id="1_nnpb6"]
+[ext_resource type="PackedScene" uid="uid://pp6ggh3epknh" path="res://Asset/AnimationLibrary_Godot_Standard.glb" id="2_8j8kl"]
+
+[sub_resource type="GDScript" id="GDScript_nnpb6"]
+script/source = "extends Node3D
+
+
+
+@onready var horizontal_pivot:= $HorizontalPivot
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5kvr3"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fdwhq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5kvr3"]
+states/Start/position = Vector2(141.33333, 101.11111)
+states/Walk/node = SubResource("AnimationNodeAnimation_5kvr3")
+states/Walk/position = Vector2(270, 99.55556)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_fdwhq")]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdwhq"]
+radius = 0.34
+height = 1.8
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=273688365]
+script = ExtResource("1_nnpb6")
+
+[node name="AnimationLibrary_Godot_Standard" parent="." unique_id=918362516 instance=ExtResource("2_8j8kl")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+script = SubResource("GDScript_nnpb6")
+
+[node name="Skeleton3D" parent="AnimationLibrary_Godot_Standard/Rig" parent_id_path=PackedInt32Array(918362516, 1504690774) index="0" unique_id=587897300]
+bones/1/position = Vector3(-0.026480706, 0.05010322, 0.9163023)
+bones/1/rotation = Quaternion(0.7904612, 0.00054332754, -0.0031247428, 0.612504)
+bones/3/rotation = Quaternion(-0.035122856, -0.004511798, 0.0027388236, 0.999369)
+bones/4/rotation = Quaternion(0.12604226, -0.01415486, 0.0014660183, 0.9919228)
+bones/5/rotation = Quaternion(0.026782636, 0.009400358, -0.0015596286, 0.9995959)
+bones/6/rotation = Quaternion(-0.015338056, 0.008388992, -0.005620038, 0.99983144)
+bones/7/rotation = Quaternion(-0.6124956, -0.3298274, -0.34094813, 0.63231117)
+bones/8/rotation = Quaternion(-0.23116775, 0.6441934, -0.5905071, 0.42764202)
+bones/9/rotation = Quaternion(0.3167514, -0.045082342, -0.07458622, 0.9444962)
+bones/10/rotation = Quaternion(0.2115047, 0.009971573, -0.009198748, 0.9772828)
+bones/11/rotation = Quaternion(0.44519076, 0.5493689, -0.44519407, 0.54936445)
+bones/12/rotation = Quaternion(0.62334174, -3.8975273e-07, 1.9876367e-07, 0.7819496)
+bones/13/rotation = Quaternion(0.62334156, -1.5126032e-07, -2.6381247e-07, 0.7819497)
+bones/14/rotation = Quaternion(0.43208998, 0.5386998, -0.45804644, 0.55972695)
+bones/15/rotation = Quaternion(0.62334085, 0.00094329176, 0.0011835401, 0.7819488)
+bones/16/rotation = Quaternion(0.62334126, -0.0007042687, -0.0008833692, 0.7819492)
+bones/17/rotation = Quaternion(0.50405705, 0.51154155, -0.43515155, 0.5430423)
+bones/18/rotation = Quaternion(0.623163, -0.020061562, 0.01492545, 0.78169227)
+bones/19/rotation = Quaternion(0.62334126, 0.0003799159, 0.00047651716, 0.78194976)
+bones/20/rotation = Quaternion(0.43534002, 0.54135597, -0.45490405, 0.55720305)
+bones/21/rotation = Quaternion(0.6233412, 7.2879207e-06, 9.389289e-06, 0.78195)
+bones/22/rotation = Quaternion(0.62334156, -0.00066509185, -0.0008343795, 0.78194904)
+bones/23/rotation = Quaternion(0.29083833, 0.9496491, 0.114583574, 0.021217056)
+bones/24/rotation = Quaternion(0.21939024, 0.023802642, -0.0053049354, 0.9753324)
+bones/25/rotation = Quaternion(0.6873882, -0.00030921702, -0.00044428947, 0.7262901)
+bones/26/rotation = Quaternion(-0.6149437, 0.3252402, 0.3362124, 0.634842)
+bones/27/rotation = Quaternion(-0.22308484, -0.6426, 0.5959868, 0.42672977)
+bones/28/rotation = Quaternion(0.29025817, 0.04495526, 0.047660213, 0.95470303)
+bones/29/rotation = Quaternion(0.037032653, -0.01892142, 0.011684755, 0.9990666)
+bones/30/rotation = Quaternion(0.4451904, -0.549369, 0.44519415, 0.5493645)
+bones/31/rotation = Quaternion(0.62334156, -1.683746e-07, 3.7730075e-08, 0.7819497)
+bones/32/rotation = Quaternion(0.6233422, -3.2872364e-07, 1.1672064e-07, 0.7819492)
+bones/33/rotation = Quaternion(0.43208995, -0.5386998, 0.45804653, 0.55972695)
+bones/34/rotation = Quaternion(0.623341, -0.0009433791, -0.0011837156, 0.7819486)
+bones/35/rotation = Quaternion(0.62334114, 0.0007042532, 0.000883413, 0.7819493)
+bones/36/rotation = Quaternion(0.504057, -0.5115414, 0.4351517, 0.54304224)
+bones/37/rotation = Quaternion(0.6231628, 0.020061443, -0.014925773, 0.7816924)
+bones/38/rotation = Quaternion(0.6233416, -0.0003798684, -0.0004762454, 0.78194946)
+bones/39/rotation = Quaternion(0.43533945, -0.54135615, 0.45490405, 0.55720323)
+bones/40/rotation = Quaternion(0.62334174, -7.726914e-06, -9.372803e-06, 0.7819496)
+bones/41/rotation = Quaternion(0.6233413, 0.0006648711, 0.00083444, 0.7819493)
+bones/42/rotation = Quaternion(-0.29083833, 0.9496492, 0.11458371, -0.021217111)
+bones/43/rotation = Quaternion(0.21939062, -0.02380263, 0.005304745, 0.9753323)
+bones/44/rotation = Quaternion(0.68738794, 0.0003091074, 0.00044452786, 0.72629035)
+bones/45/rotation = Quaternion(0.8959094, 0.019107204, -0.0023558647, 0.44381964)
+bones/46/rotation = Quaternion(0.69435126, 0.0076331873, -0.0073785773, 0.719558)
+bones/47/rotation = Quaternion(-0.25773036, 0.009074818, 0.020219563, 0.9659627)
+bones/48/rotation = Quaternion(-0.00013714071, 0.9643068, -0.26478708, -0.000499386)
+bones/49/rotation = Quaternion(0.9946706, 0.01829347, -0.0022555403, 0.101443395)
+bones/50/rotation = Quaternion(0.10790963, 0.0012429466, -0.00014464463, 0.99415994)
+bones/51/rotation = Quaternion(-0.5649988, -0.0053995675, 0.010772206, 0.8250038)
+bones/52/rotation = Quaternion(0.0018250911, 0.9499926, -0.3122672, -5.154463e-05)
+
+[node name="AnimationPlayer" parent="AnimationLibrary_Godot_Standard" index="1" unique_id=118347560]
+root_motion_track = NodePath("Rig/Skeleton3D:root")
+autoplay = &"Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationLibrary_Godot_Standard" unique_id=903991493]
+root_motion_track = NodePath("Rig/Skeleton3D:root")
+tree_root = SubResource("AnimationNodeStateMachine_5kvr3")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2107588531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895, 0)
+shape = SubResource("CapsuleShape3D_fdwhq")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=921472248]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 1.435, 0)
+spring_length = 1.375
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=490731970]
+
+[node name="HorizontalPivot" type="Node3D" parent="." unique_id=273806051]
+
+[node name="VerticalPivot" type="Node3D" parent="HorizontalPivot" unique_id=423773337]
+
+[editable path="AnimationLibrary_Godot_Standard"]

@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# 二进制资产（不上传）
+Asset/
+
+# 导出目录
+exports/
+build/
+
+# 临时文件
+*.tmp

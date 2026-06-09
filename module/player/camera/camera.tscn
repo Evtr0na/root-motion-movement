@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cubs72l8ll2di"]
+
+[ext_resource type="Script" uid="uid://bqbnmiv5p5b1c" path="res://module/player/camera/camera.gd" id="1_bw3ve"]
+
+[node name="camera" type="Node3D" unique_id=114867174]
+script = ExtResource("1_bw3ve")
+mouse_sensitivity = null
+decay = null
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1080673432]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 1.435, 0)
+collision_mask = 2
+spring_length = 1.375
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1346754863]
+
+[node name="HorizontalPivot" type="Node3D" parent="." unique_id=30294266]
+
+[node name="VerticalPivot" type="Node3D" parent="HorizontalPivot" unique_id=719749417]
+
+[node name="int_pivot" type="Node3D" parent="." unique_id=1241578326]
