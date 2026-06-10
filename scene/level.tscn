@@ -66,15 +66,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7967089, 0.049999952, -4.20
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08, 1.0000001, -2.7967088, -0.05000007, 11.238544)
 mouse_sensitivity = 0.005
 decay = 20.0
-now_target = NodePath("../CharacterBody3D")
-
-[node name="CharacterBody3D" parent="Player" unique_id=273688365 instance=ExtResource("2_36wlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9452825, 0, 10.525269)
+now_target = NodePath("../CharacterBody3D2")
 
 [node name="CharacterBody3D2" parent="Player" unique_id=1889686362 instance=ExtResource("2_36wlx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9452825, 0, 8.030635)
-
-[node name="CharacterBody3D3" parent="Player" unique_id=1828313886 instance=ExtResource("2_36wlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.850824, 0, 9.420578)
 
 [editable path="Player/camera"]
