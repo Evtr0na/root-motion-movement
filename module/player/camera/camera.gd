@@ -4,7 +4,7 @@ extends Node3D
 @export var mouse_sensitivity := 0.005
 @export var decay := 20.0
 @export var now_target: CharacterBody3D
-
+@export var is_change:=true#是否开启换人功能，不开启则默认附着单人
 
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
 @onready var int_pivot: Node3D = $int_pivot
@@ -18,7 +18,16 @@ var int_position := Vector3.ZERO
 var change_num: int = 0
 
 
-# Called when the node enters the scene tree for the first time.
+
+
+
+
+
+
+
+
+
+
 func _ready() -> void:
 	change_num = $"..".find_children("*", "CharacterBody3D").find(now_target)
 	print(change_num)
@@ -37,6 +46,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_look += event.relative * mouse_sensitivity # 累计一帧内移动的距离？
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 func frame_camera_movement(delta: float) -> void:
 	horizontal_pivot.rotate_y(-_look.x)
@@ -52,6 +74,9 @@ func frame_camera_movement(delta: float) -> void:
 
 func change_position() -> CharacterBody3D:
 	var player_nodes: Array[Node] = $"..".get_children().filter(func(c): return c is CharacterBody3D)
+
+
+
 
 	now_target = player_nodes[change_num]
 		
@@ -71,14 +96,21 @@ func change_position() -> CharacterBody3D:
 
 
 func contrl_center_charactaer(character, bool_: bool) -> void:
-	character.set_process_unhandled_input(bool_)
-	character.set_physics_process(bool_)
+	character.is_control=bool_
 
 
 func move_camera(delta: float) -> void:
-	if Input.is_action_just_pressed("change_camra_position"):
-			change_position()
+	
+
+
+	if now_target == null:
+		print("请添加初始相机附着对象")
+		return
+
+	if is_change and Input.is_action_just_pressed("change_camra_position"):
+		change_position()
 			
+
 	int_position = now_target.global_position
 
 	if global_position != int_position:
