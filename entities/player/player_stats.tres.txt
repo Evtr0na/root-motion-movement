@@ -1,0 +1,16 @@
+# entities/player/player_stats.tres
+# Resource 文件，定义玩家的基础数值
+# 不同职业/存档可替换这个 .tres
+#
+# @example fields:
+#   base_hp = 500
+#   base_stamina = 100
+#   base_vigor = 10
+#   base_endurance = 10
+#   base_strength = 12
+#   base_dexterity = 12
+#   base_intelligence = 9
+#   base_faith = 9
+#   starting_equipment = [Longsword, HeaterShield]
+#
+# 由 components/character/attributes 和 health/stamina 读取
