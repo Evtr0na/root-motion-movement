@@ -35,7 +35,6 @@ func spawn_items_randomly()->void:
 
 	var map_rid:RID = saf_regi.get_navigation_map() 
 	
-	nodes_spawn.add_child(instancce)
 	var position_:Vector3 = Vector3(
 	randf_range(spawn_position.x-half_size.x,spawn_position.x+half_size.x),
 	randf_range(spawn_position.y-half_size.y,spawn_position.y+half_size.y),
@@ -44,6 +43,10 @@ func spawn_items_randomly()->void:
 #这里更好的做法是先在vector3d 里随机-half_size到half_size，再乘以方块的global_tranform
 
 	position_ = NavigationServer3D.map_get_closest_point(map_rid,position_)#转化为安全生成点
+
+
+
+	nodes_spawn.add_child(instancce)
 
 
 	instancce.global_position = position_ 

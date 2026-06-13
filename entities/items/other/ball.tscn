@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dfu5em3tu8mjc"]
+
+[ext_resource type="PackedScene" uid="uid://bsbudhquyqmfi" path="res://Asset/animations/item/ball.glb" id="1_fi5be"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fi5be"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ba4xd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jrm23"]
+states/Start/position = Vector2(292, 106.51852)
+states/jump/node = SubResource("AnimationNodeAnimation_fi5be")
+states/jump/position = Vector2(448, 106.44444)
+transitions = ["Start", "jump", SubResource("AnimationNodeStateMachineTransition_ba4xd")]
+
+[node name="ball" unique_id=949747385 instance=ExtResource("1_fi5be")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1696878049) index="0" unique_id=1948744066]
+bones/1/position = Vector3(2.2910507e-08, -6.146233e-08, 0.30000016)
+bones/1/rotation = Quaternion(-5.5755617e-08, -3.4924608e-10, 2.8760962e-08, 1)
+bones/1/scale = Vector3(0.99999994, 0.9999998, 1.0000002)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=2012908458]
+autoplay = &"jump"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1559932744]
+tree_root = SubResource("AnimationNodeStateMachine_jrm23")
+anim_player = NodePath("../AnimationPlayer")

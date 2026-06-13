@@ -5,8 +5,13 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @export var camera_name:String = "camera"
+@export var camera_ref:Node3D  
+@export var camera_length:float =1.375
 
-@onready var animation_library_godot_standard: Node3D = $AnimationLibrary_Godot_Standard
+@onready var rig_pivot: Node3D = $"Rig pivot"
+
+
+
 
 var is_control:=false
 
@@ -14,8 +19,6 @@ var is_control:=false
 
 var camera_component:Node3D  
 func  _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	# find_camera()	
 
 	camera_component=$"..".find_child(camera_name)#在最开始去寻找名字叫做camera_name的节点
 func _physics_process(delta: float) -> void:
@@ -35,9 +38,9 @@ func _physics_process(delta: float) -> void:
 
 
 func look_forward(direction:Vector3,delta:float)->void:#角色转向
-	var look_target:=animation_library_godot_standard.global_transform.looking_at(animation_library_godot_standard.global_position+direction,Vector3.UP,true)
+	var look_target:=rig_pivot.global_transform.looking_at(rig_pivot.global_position+direction,Vector3.UP,true)
 
-	animation_library_godot_standard.global_transform = animation_library_godot_standard.global_transform.interpolate_with(look_target,1.0-exp(-10*delta))  
+	rig_pivot.global_transform = rig_pivot.global_transform.interpolate_with(look_target,1.0-exp(-10*delta))  
 
 
 

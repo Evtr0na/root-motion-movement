@@ -1,3 +1,21 @@
+
+#---------------------------------------------------------------------
+#说明
+#---------------------------------------------------------------------
+
+
+
+#这是一个相机组件
+
+#实现基本相机相转功能
+#读取同父级下的character3d类，按相应键位切换控制对象（调试阶段使用q键）
+
+
+
+#---------------------------------------------------------------------
+
+#---------------------------------------------------------------------
+
 extends Node3D
 
 
@@ -16,7 +34,6 @@ extends Node3D
 var _look := Vector2.ZERO
 var int_position := Vector3.ZERO
 var change_num: int = 0
-
 
 
 
@@ -63,19 +80,20 @@ func frame_camera_movement(delta: float) -> void:
 
 	_look = Vector2.ZERO
 
-
+#选择角色
 func change_position() -> CharacterBody3D:
 	var player_nodes: Array[Node] = $"..".get_children().filter(func(c): return c is CharacterBody3D)
 
-
-
+	var now_num:= player_nodes.find(now_target)
+	if  player_nodes.size()>1: 
+		change_num = now_num-1
 
 	now_target = player_nodes[change_num]
 		
 	print(int_position)
-		
-	change_num = (change_num + 1)%player_nodes.size() # 实现0到player_nodes-1的循环
 
+	
+	# change_num = (change_num + 1)%player_nodes.size() # 实现0到player_nodes-1的循环
 	for i in player_nodes:
 		if i != now_target:
 			i.is_control = false 
@@ -86,7 +104,7 @@ func change_position() -> CharacterBody3D:
 
 	return now_target
 
-
+#执行移动相机
 func move_camera(delta: float) -> void:
 	
 
@@ -95,15 +113,13 @@ func move_camera(delta: float) -> void:
 		print("请添加初始相机附着对象")
 		return
 
+	spring_arm_3d.spring_length = now_target.camera_length
+
 	if is_change and Input.is_action_just_pressed("change_camra_position"):
 		change_position()
 			
 
-	int_position = now_target.global_position
+	int_position = now_target.camera_ref.global_position
 
-	if global_position != int_position:
-		global_position = lerp(global_position, int_position, 1.0 - exp(-decay * delta))
-	else:
-		global_position = int_position
-
-		print("已经重合")
+	global_position = lerp(global_position, int_position, 1.0 - exp(-decay * delta))
+	

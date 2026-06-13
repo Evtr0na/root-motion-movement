@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dxkhfr2galwrf"]
+
+[ext_resource type="Texture2D" uid="uid://dhtnymx5v7nit" path="res://Asset/models/scene/level_demo/level_demo_brik_bake_texture.png" id="1_pguti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pguti"]
+albedo_texture = ExtResource("1_pguti")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Node3D" type="Node3D" unique_id=1452796424]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1390502784]
+use_collision = true
+size = Vector3(1000, 1, 1000)
+material = SubResource("StandardMaterial3D_pguti")

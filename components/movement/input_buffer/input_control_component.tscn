@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xtft6810ag3a"]
+
+[ext_resource type="Script" uid="uid://1nplcrikua71" path="res://components/movement/input_buffer/input_control_component.gd" id="1_vr40p"]
+
+[node name="input control component" type="Node3D" unique_id=1748000230]
+script = ExtResource("1_vr40p")

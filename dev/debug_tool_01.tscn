@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://05w0rqm2irl3"]
+
+[ext_resource type="Script" uid="uid://c0ys0ormsupfs" path="res://dev/debug_tool_01.gd" id="1_4mc32"]
+[ext_resource type="PackedScene" uid="uid://byryjadmc84ju" path="res://Asset/models/Debug/vector.glb" id="1_xq1vl"]
+
+[node name="Debug_tool_01" type="Node3D" unique_id=1224812786]
+script = ExtResource("1_4mc32")
+
+[node name="vector" parent="." unique_id=1582402570 instance=ExtResource("1_xq1vl")]
+
+[node name="Label3D" type="Label3D" parent="vector" unique_id=1090727921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42293167, -3.9051826)
+text = "123"
+font_size = 183
